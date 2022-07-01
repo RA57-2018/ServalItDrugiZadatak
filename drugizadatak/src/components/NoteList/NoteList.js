@@ -1,8 +1,5 @@
 import React from "react";
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import { Button } from "@mui/material";
+import { Button, Grid, Box} from "@mui/material";
 import './NoteList.css';
 
 function NoteList(props){

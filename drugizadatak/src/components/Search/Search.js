@@ -5,8 +5,8 @@ import { Input } from "@mui/material";
 
 function Search(props){
     return <div className="wrapper">
-        <SearchIcon />
-        <Input placeholder="Search for your notes..." type="text" style={{width: "100%", color: "black"}} />
+        <SearchIcon style={{width: "30px", height: "50px"}}/>
+        <Input placeholder="Search for your notes..." style={{width: "100%", color: "black", outline: "none"}} />
     </div> 
 };
 
