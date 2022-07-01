@@ -1,6 +1,7 @@
 import React from "react";
+import './AddNote.css';
 
-function AddNote(){
+function AddNote(props){
     return <div>
         
     </div>
