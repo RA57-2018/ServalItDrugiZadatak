@@ -1,31 +1,59 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, { useState} from 'react';
 import Header from './components/Header/Header';
 import Search from './components/Search/Search';
 import NoteList from './components/NoteList/NoteList';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from "@mui/material/CssBaseline";
 
-const darkTheme = createTheme({
+
+const themeLight = createTheme({
   palette: {
-    mode: 'dark',
-  },
+    background: {
+      default: "#e4f0e2"
+    }
+  }
+});
+
+const themeDark = createTheme({
+  palette: {
+    background: {
+      default: "#222222"
+    },
+    text: {
+      primary: "#ffffff"
+    }
+  }
 });
 
 function App() {
 
-   const [value, setValue] = useState(false);
+  const [theme, setTheme] = useState(true);
 
-   const handleClick = () => {
-      setValue(true);
-   }
- 
   return (
-    <div className="App">
-      <Header />
+    <ThemeProvider theme={theme ? themeLight : themeDark}>
+      <CssBaseline />
+    <div className="App" >
+      <Header setTheme={() => setTheme(!theme)}/>
       <Search />
       <NoteList />
     </div>
+  </ThemeProvider>
   );
 }
 
 export default App;
+
+/* <ThemeProvider theme={themes[theme]}>
+      <div className="App" >
+        <Header theme={theme} setTheme={setTheme}/>
+        <Search />
+        <NoteList />
+      </div>
+    </ThemeProvider> */
+
+// {
+//   value.map(() => {
+//     return <Header toggleThemes={toggleTheme}/>
+//   })
+// }
