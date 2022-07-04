@@ -1,7 +1,7 @@
 import React from "react";
 import './AddNote.css';
 
-function AddNote(props){
+function AddNote(addNotes){
     return <div>
         
     </div>

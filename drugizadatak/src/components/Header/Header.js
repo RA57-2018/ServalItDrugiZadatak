@@ -11,10 +11,3 @@ function Header({isClicked}){
 };
 
 export default Header;
-
-/**<div className="headerNotes">
-        <Button style={{fontSize: "20px", color: "#000000", fontFamily: "Arial", justifyContent: "space-between", display: "flex"}} variant="text">React Notes</Button>
-        <Button style={{borderRadius: "30px", cursor: 'pointer', justifyContent: "space-between", 
-        backgroundColor: "#c4c1c1", padding: "10px 10px", fontSize: "16px", color: "#000000", border: "3px solid rgb(67, 136, 67)"}} 
-        variant="contained">Toggle Mode</Button>
-    </div> */
