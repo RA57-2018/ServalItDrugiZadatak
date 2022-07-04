@@ -1,10 +1,10 @@
 import React from "react";
-import './AddNote.css';
+import "./AddNote.css";
+import "./NoteList.css";
 
-function AddNote(addNotes){
-    return <div>
-        
-    </div>
-};
+function AddNote(props) {
+  return;
+  <div></div>;
+}
 
 export default AddNote;

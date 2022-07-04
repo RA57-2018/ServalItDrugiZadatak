@@ -1,8 +1,10 @@
 import React from "react";
-import { Button, Grid, Box } from "@mui/material";
+import { Button, Grid, Box, IconButton } from "@mui/material";
 import "./NoteList.css";
 
-function NoteList(addNotes) {
+function NoteList(props) {
+  //localStorage.setItem('content', JSON.stringify(content));
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid
@@ -10,10 +12,12 @@ function NoteList(addNotes) {
         spacing={{ xs: 2, md: 2 }}
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
-        {Array.from(Array(1)).map((_, index) => (
+        {Array.from(Array(6)).map((_, index) => (
           <Grid item xs={2} sm={4} md={4} key={index}>
             <Grid className="notesList">
               <input
+                value={props.content}
+                onChange={(e) => props.setContent(e.target.value)}
                 type="text"
                 placeholder="Type to add a new note..."
                 style={{
@@ -44,7 +48,6 @@ function NoteList(addNotes) {
                   bottom: 0,
                   right: 0,
                 }}
-                onClick={addNotes}
               >
                 Save
               </Button>
