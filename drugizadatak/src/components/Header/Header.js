@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Grid } from "@mui/material";
-import "./Header.css";
 
 function Header(props) {
 
