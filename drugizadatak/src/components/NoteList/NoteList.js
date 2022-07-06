@@ -2,6 +2,7 @@ import { Grid, Box } from "@mui/material";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 function NoteList(props) {
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid
@@ -9,7 +10,7 @@ function NoteList(props) {
         spacing={{ xs: 2, md: 2 }}
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
-        {Array.from(Array(1)).map((_, index) => (
+        {props.content.map((note, index) => (
           <Grid item xs={2} sm={4} md={4} key={index}>
             <Grid
               style={{
@@ -25,18 +26,7 @@ function NoteList(props) {
                 height: "150px",
               }}
             >
-              <input
-                type="text"
-                placeholder="Type to add a new note..."
-                style={{
-                  backgroundColor: "rgb(91, 131, 91)",
-                  border: "1px solid rgb(67, 133, 67)",
-                  boxCecorationBreak: "initial",
-                  width: "100%",
-                  height: "70%",
-                  color: "black",
-                }}
-              />
+              <p>{note.noteText}</p>
               <Box>{index + 1}</Box>
               <Box style={{ position: "absolute", left: 0, bottom: 0 }}>
                 5/7/2022
@@ -51,6 +41,7 @@ function NoteList(props) {
                   height: "50px",
                   cursor: "pointer",
                 }}
+               
               ></DeleteForeverIcon>
             </Grid>
           </Grid>

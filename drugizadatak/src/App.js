@@ -29,13 +29,22 @@ const themeDark = createTheme({
 function App() {
 
   const [theme, setTheme] = useState(true);                   //namestanje teme
-  const [counter, setCounter] = useState(300);                //brojac
-  const [item, setItems] = useState("");
-  var getMyItem = "";
+  const [content, setContent] = useState([]);
+  
+  useEffect(() => {
+    localStorage.setItem("content", JSON.stringify(content)); //cuvanje
+  }, [content]);
 
-  localStorage.setItem("item", JSON.stringify(item));
-  var getItem = localStorage.getItem("item");
-  getMyItem = JSON.parse(getItem);
+  useEffect(() => {
+    JSON.parse(localStorage.getItem('notes'));                //citanje
+  }, []);
+
+  const handleContent = (noteText) => {
+    const newNote = {
+      noteText: noteText
+    }
+    setContent([...content, newNote]);
+  }
 
   return (
     <ThemeProvider theme={theme ? themeLight : themeDark}>
@@ -43,13 +52,16 @@ function App() {
       <div className="App">
         <Header setTheme={() => setTheme(!theme)} />
         <Search />
-        <AddNote counter={counter} setItemss={() => setItems(item)} value={item} />
+        <NoteList content={content}/> 
+        <AddNote setContent={handleContent}/>
       </div>
     </ThemeProvider>
   );
 }
 
 export default App;
+
+// <AddNote counter={counter} setItemss={() => handleInput(getItem)} setCounter={counter} />
 
 // localStorage.setItem('item', JSON.stringify(item));
 // console.log(item);

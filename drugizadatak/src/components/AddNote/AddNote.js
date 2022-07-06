@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import { Grid, Box, Button } from "@mui/material";
 
 function AddNote(props) {
+
+  const [values, setValues] = useState("");
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -18,16 +20,16 @@ function AddNote(props) {
                 backgroundColor: "rgb(67, 136, 67)",
                 borderRadius: "10px",
                 position: "relative",
-                display: "flex",
+                display: "grid | inline-grid",
                 minWidth: "100px",
-                marginTop: "1%",
+                marginTop: "5%",
                 marginLeft: "3%",
                 marginRight: "3%",
                 height: "150px",
               }}
             >
               <input
-                value={props.item}
+                onChange={(e) => setValues(e.target.value)}
                 type="text"
                 placeholder="Type to add a new note..."
                 style={{
@@ -58,7 +60,7 @@ function AddNote(props) {
                   bottom: 0,
                   right: 0,
                 }}
-                onClick={props.setItemss}
+                onClick={() => props.setContent(values)}
               >
                 Save
               </Button>
