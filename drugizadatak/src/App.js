@@ -30,6 +30,7 @@ function App() {
 
   const [theme, setTheme] = useState(true);                   //namestanje teme
   const [content, setContent] = useState([]);
+  const [ids, setId] = useState(0);
   
   useEffect(() => {
     localStorage.setItem("content", JSON.stringify(content)); //cuvanje
@@ -39,11 +40,19 @@ function App() {
     JSON.parse(localStorage.getItem('notes'));                //citanje
   }, []);
 
-  const handleContent = (noteText) => {
+  const handleContent = (noteText) => {                       //pamtimo stari input i dodajemo novi
     const newNote = {
       noteText: noteText
     }
     setContent([...content, newNote]);
+  }
+
+  const handleDelete = (id) => {
+    console.log(id);                                        //ispise dobar id grida 
+    const remove = content.filter((elem, id) => {
+      return id !== 1;                                      //brisanje beleske
+    });
+    setContent(remove);
   }
 
   return (
@@ -52,7 +61,7 @@ function App() {
       <div className="App">
         <Header setTheme={() => setTheme(!theme)} />
         <Search />
-        <NoteList content={content}/> 
+        <NoteList content={content} removeNote={handleDelete} /> 
         <AddNote setContent={handleContent}/>
       </div>
     </ThemeProvider>

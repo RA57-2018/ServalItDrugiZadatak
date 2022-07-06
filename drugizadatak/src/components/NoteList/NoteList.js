@@ -41,7 +41,7 @@ function NoteList(props) {
                   height: "50px",
                   cursor: "pointer",
                 }}
-               
+               onClick={() => props.removeNote(index+1)}
               ></DeleteForeverIcon>
             </Grid>
           </Grid>

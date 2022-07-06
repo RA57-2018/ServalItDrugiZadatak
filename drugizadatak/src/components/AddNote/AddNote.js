@@ -20,7 +20,7 @@ function AddNote(props) {
                 backgroundColor: "rgb(67, 136, 67)",
                 borderRadius: "10px",
                 position: "relative",
-                display: "grid | inline-grid",
+                display: "flex",
                 minWidth: "100px",
                 marginTop: "5%",
                 marginLeft: "3%",
@@ -41,7 +41,6 @@ function AddNote(props) {
                   color: "black",
                 }}
               />
-              <Box>{index + 1}</Box>
               <Box style={{ position: "absolute", left: 0, bottom: 0 }}>
                 {props.counter} Remaining
               </Box>
