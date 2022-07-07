@@ -30,7 +30,8 @@ function App() {
 
   const [theme, setTheme] = useState(true);                   //namestanje teme
   const [content, setContent] = useState([]);
-  const [counter, setCounter] = useState(0);
+  const [query, setQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   
   useEffect(() => {
     localStorage.setItem("content", JSON.stringify(content)); //cuvanje
@@ -55,13 +56,25 @@ function App() {
     setContent(remove);
   }
 
+  const searchHandler = (query) => {
+    setQuery(query);
+    if(query  !== ""){
+      const newContent = content.filter((contents) => {
+          return Object.values(contents).join(" ").toLowerCase().includes(query.toLowerCase());
+      });
+      setSearchResults(newContent);
+    }else{
+      setSearchResults(content);
+    }
+  };
+
   return (
     <ThemeProvider theme={theme ? themeLight : themeDark}>
       <CssBaseline />
       <div className="App">
         <Header setTheme={() => setTheme(!theme)} />
-        <Search />
-        <NoteList content={content} removeNote={handleDelete} /> 
+        <Search queries={query} setQuery={searchHandler}/>
+        <NoteList content={query.length < 1 ? content : searchResults} removeNote={handleDelete} /> 
         <AddNote setContent={handleContent} />
       </div>
     </ThemeProvider>

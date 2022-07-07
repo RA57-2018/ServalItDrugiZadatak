@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { Input, Grid } from "@mui/material";
 
 function Search(props) {
+
   return (
     <Grid
       style={{
@@ -22,7 +23,8 @@ function Search(props) {
       <Input
         placeholder="Search for your notes..."
         style={{ width: "100%", color: "black", outline: "none" }}
-        onChange={event => props.setQuery(event.target.value)}
+        value={props.query}
+        onChange={(e) => props.setQuery(e.target.value)}
       />
     </Grid>
   );

@@ -42,7 +42,7 @@ function AddNote(props) {
                 }}
               />
               <Box style={{ position: "absolute", left: 0, bottom: 0 }}>
-                {values.length} Remaining
+                {300 - values.length} Remaining
               </Box>
               <Button
                 variant="outlined"
