@@ -30,7 +30,7 @@ function App() {
 
   const [theme, setTheme] = useState(true);                   //namestanje teme
   const [content, setContent] = useState([]);
-  const [counter, setCounter] = useState(300);
+  const [counter, setCounter] = useState(0);
   
   useEffect(() => {
     localStorage.setItem("content", JSON.stringify(content)); //cuvanje
@@ -62,7 +62,7 @@ function App() {
         <Header setTheme={() => setTheme(!theme)} />
         <Search />
         <NoteList content={content} removeNote={handleDelete} /> 
-        <AddNote setContent={handleContent} counter={counter} />
+        <AddNote setContent={handleContent} />
       </div>
     </ThemeProvider>
   );
