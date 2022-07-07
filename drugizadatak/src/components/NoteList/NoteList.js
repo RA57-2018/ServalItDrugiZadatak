@@ -1,5 +1,6 @@
 import { Grid, Box } from "@mui/material";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import React , { useState }from "react";
 
 function NoteList(props) {
 
@@ -27,7 +28,7 @@ function NoteList(props) {
               }}
             >
               <p>{note.noteText}</p>
-              <Box>{index + 1}</Box>
+              <Box>{index+1}</Box>
               <Box style={{ position: "absolute", left: 0, bottom: 0 }}>
                 5/7/2022
               </Box>
@@ -41,7 +42,7 @@ function NoteList(props) {
                   height: "50px",
                   cursor: "pointer",
                 }}
-               onClick={() => props.removeNote(index+1)}
+               onClick={() => props.removeNote(index)}
               ></DeleteForeverIcon>
             </Grid>
           </Grid>

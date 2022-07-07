@@ -30,7 +30,7 @@ function App() {
 
   const [theme, setTheme] = useState(true);                   //namestanje teme
   const [content, setContent] = useState([]);
-  const [ids, setId] = useState(0);
+  const [counter, setCounter] = useState(300);
   
   useEffect(() => {
     localStorage.setItem("content", JSON.stringify(content)); //cuvanje
@@ -47,10 +47,10 @@ function App() {
     setContent([...content, newNote]);
   }
 
-  const handleDelete = (id) => {
-    console.log(id);                                        //ispise dobar id grida 
+  const handleDelete = (ids) => {                            //brisanje beleske
+    console.log(ids);                                        
     const remove = content.filter((elem, id) => {
-      return id !== 1;                                      //brisanje beleske
+      return ids !== id;                                      
     });
     setContent(remove);
   }
@@ -62,7 +62,7 @@ function App() {
         <Header setTheme={() => setTheme(!theme)} />
         <Search />
         <NoteList content={content} removeNote={handleDelete} /> 
-        <AddNote setContent={handleContent}/>
+        <AddNote setContent={handleContent} counter={counter} />
       </div>
     </ThemeProvider>
   );

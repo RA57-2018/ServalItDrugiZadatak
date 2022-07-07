@@ -29,7 +29,7 @@ function AddNote(props) {
               }}
             >
               <input
-                onChange={(e) => setValues(e.target.value)}
+                onChange={(e) => setValues(e.target.value)}                   //jedan po jedan karakter
                 type="text"
                 placeholder="Type to add a new note..."
                 style={{
