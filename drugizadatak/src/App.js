@@ -84,7 +84,7 @@ function App() {
 export default App;
 
 // <AddNote counter={counter} setItemss={() => handleInput(getItem)} setCounter={counter} />
-
+     
 // localStorage.setItem('item', JSON.stringify(item));
 // console.log(item);
 
